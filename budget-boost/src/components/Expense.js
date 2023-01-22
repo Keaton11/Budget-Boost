@@ -1,4 +1,13 @@
+import budgetBoosterLogo from '../images/full-logo.jpg';
 import React, { useState } from 'react';
+import {TopBar, Navigation, Frame} from '@shopify/polaris';
+import {
+  CashDollarMajor,
+  CreditCardMajor,
+  BankMajor,
+  HomeMajor,
+} from '@shopify/polaris-icons';
+
 
 function Expense() {
     const [earnings, setEarnings] = useState(0);
@@ -30,8 +39,50 @@ function Expense() {
         }]
     };
 
+    const navigationMarkup = (
+        <Navigation location="./">
+          <Navigation.Section
+            items={[
+              {
+                url: '/',
+                label: 'Home',
+                icon: HomeMajor,
+              },
+              {
+                url: '/income',
+                label: 'Income',
+                icon: CashDollarMajor,
+              },
+              {
+                url: '/expenses',
+                label: 'Expenses',
+                icon: BankMajor,
+              },
+              {
+                url: '/transactions',
+                label: 'Transactions',
+                icon: CreditCardMajor,
+              },
+            ]}
+          />
+        </Navigation>
+      );
+    
+      const logo = {
+        width: 175,
+        topBarSource: budgetBoosterLogo,
+      };
+    
+      const topBarMarkup = (
+        <TopBar/>
+      );
 
     return (
+        <Frame
+        topBar={topBarMarkup}
+        logo={logo}
+        navigation={navigationMarkup}
+      >
         <div>
             <h1>Expenses: </h1>
             <label>Earnings:</label>
@@ -48,6 +99,7 @@ function Expense() {
             <p>Amount Earned: {earnings}</p>
             <p>Amount Spent: {spending}</p>
         </div>
+        </Frame>
     );
 }
 

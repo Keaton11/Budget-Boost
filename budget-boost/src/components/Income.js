@@ -1,5 +1,6 @@
+import budgetBoosterLogo from '../images/full-logo.jpg';
 import React, { useState } from 'react';
-import {Navigation, Frame} from '@shopify/polaris';
+import {TopBar, Navigation, Frame, Card} from '@shopify/polaris';
 import {
   CashDollarMajor,
   CreditCardMajor,
@@ -72,8 +73,19 @@ function IncomeForm({ addIncome }) {
     </Navigation>
   );
 
+  const logo = {
+    width: 175,
+    topBarSource: budgetBoosterLogo,
+  };
+
+  const topBarMarkup = (
+    <TopBar/>
+  );
+
   return (
     <Frame
+            topBar={topBarMarkup}
+            logo={logo}
             navigation={navigationMarkup}
           >
     <form onSubmit={handleSubmit}>

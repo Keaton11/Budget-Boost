@@ -3,6 +3,7 @@ import Expense from './components/Expense';
 import Income from './components/Income';
 import Transaction from './components/Transaction';
 import Menu from './components/Menu';
+import MainMenu from './components/MainMenu';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -10,7 +11,14 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Menu />} />
+          <Route
+            path="/"
+            element={<MainMenu />}
+          />
+          <Route
+            path="/signin"
+            element={<Menu />}
+          />
           <Route
             path="/income"
             element={<Income />}
