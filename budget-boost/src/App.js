@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Expense from './components/Expense';
@@ -5,15 +6,15 @@ import Income from './components/Income';
 import Transaction from './components/Transaction';
 import Menu from './components/Menu';
 import MainMenu from './components/MainMenu';
-
+import Categories from './components/Categories';
 import budgetBoosterLogo from './images/full-logo.jpg';
-import React, { useState } from 'react';
-import {TopBar, Navigation, Frame, Card} from '@shopify/polaris';
+import {TopBar, Navigation, Frame} from '@shopify/polaris';
 import {
   CashDollarMajor,
   CreditCardMajor,
   BankMajor,
   HomeMajor,
+  DataVisualizationMajor,
 } from '@shopify/polaris-icons';
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
             url: '/expenses',
             label: 'Expenses',
             icon: BankMajor,
+          },
+          {
+            url: '/categories',
+            label: 'Categories',
+            icon: DataVisualizationMajor,
           },
           {
             url: '/transactions',
@@ -88,6 +94,17 @@ function App() {
               navigation={navigationMarkup}
             >
               <Expense />
+            </Frame>}
+          />
+          <Route
+            path="/categories"
+            element={
+              <Frame
+              topBar={topBarMarkup}
+              logo={logo}
+              navigation={navigationMarkup}
+            >
+              <Categories />
             </Frame>}
           />
           <Route
