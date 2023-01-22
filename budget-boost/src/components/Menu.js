@@ -1,4 +1,4 @@
-import budgetBoost from './logo.jpg'
+import budgetBoostLogo from './logo.jpg';
 
 import {
     ActionList,
@@ -284,9 +284,9 @@ function Menu() {
     const logo = {
       width: 175,
       topBarSource:
-        budgetBoost,
+        budgetBoostLogo,
       // contextualSaveBarSource:
-      // budgetBoost
+      // budgetBoostLogo
       //   'https://cdn.shopify.com/s/files/1/0446/6937/files/jaded-pixel-logo-gray.svg?6215648040070010999',
       // url: 'http://jadedpixel.com',
       // accessibilityLabel: 'Jaded Pixel',
