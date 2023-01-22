@@ -1,10 +1,10 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Expense from './components/Expense';
 import Income from './components/Income';
 import Transaction from './components/Transaction';
 import Menu from './components/Menu';
 import MainMenu from './components/MainMenu';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import budgetBoosterLogo from './images/full-logo.jpg';
 import React, { useState } from 'react';
