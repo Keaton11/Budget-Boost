@@ -1,12 +1,4 @@
-import budgetBoosterLogo from '../images/full-logo.jpg';
 import React, { useState } from 'react';
-import {TopBar, Navigation, Frame} from '@shopify/polaris';
-import {
-  CashDollarMajor,
-  CreditCardMajor,
-  BankMajor,
-  HomeMajor,
-} from '@shopify/polaris-icons';
 
 function Transactions() {
   const [transactions, setTransactions] = useState([]);
@@ -40,50 +32,7 @@ function TransactionForm({ addTransaction }) {
     setAmount(0);
   }
 
-  const navigationMarkup = (
-    <Navigation location="./">
-      <Navigation.Section
-        items={[
-          {
-            url: '/',
-            label: 'Home',
-            icon: HomeMajor,
-          },
-          {
-            url: '/income',
-            label: 'Income',
-            icon: CashDollarMajor,
-          },
-          {
-            url: '/expenses',
-            label: 'Expenses',
-            icon: BankMajor,
-          },
-          {
-            url: '/transactions',
-            label: 'Transactions',
-            icon: CreditCardMajor,
-          },
-        ]}
-      />
-    </Navigation>
-  );
-
-  const logo = {
-    width: 175,
-    topBarSource: budgetBoosterLogo,
-  };
-
-  const topBarMarkup = (
-    <TopBar/>
-  );
-
   return (
-    <Frame
-    topBar={topBarMarkup}
-    logo={logo}
-    navigation={navigationMarkup}
-  >
     <form onSubmit={handleSubmit}>
       <label>
         Name:
@@ -97,7 +46,6 @@ function TransactionForm({ addTransaction }) {
       <br />
       <button type="submit">Add Transaction</button>
     </form>
-    </Frame>
   );
 }
 }
