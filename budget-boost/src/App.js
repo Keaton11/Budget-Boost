@@ -1,18 +1,30 @@
 import './App.css';
 import Expense from './components/Expense';
 import Income from './components/Income';
-import Navbar from './components/Navbar';
-import Topbar from './components/Topbar';
-import Transactions from './components/Transaction';
+import Transaction from './components/Transaction';
+import Menu from './components/Menu';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Topbar />
-      <Expense />
-      <Transactions />
-      <Income />
-      {/* <Navbar />  */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Menu />} />
+          <Route
+            path="/income"
+            element={<Income />}
+          />
+          <Route
+            path="/expenses"
+            element={<Expense />}
+          />
+          <Route
+            path="/transactions"
+            element={<Transaction />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
