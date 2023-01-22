@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 function Expense() {
     const [earnings, setEarnings] = useState(0);
     const [spending, setSpending] = useState(0);
