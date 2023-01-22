@@ -1,32 +1,56 @@
-import React from 'react';
-import {MediaCard} from '@shopify/polaris';
+import React, { useState } from 'react';
 
-function Income() {
-    return (
-        <div>
-        <MediaCard
-      title="Getting Started"
-      primaryAction={{
-        content: 'Learn about getting started',
-        onAction: () => {},
-      }}
+export default function Income() {
+  const [incomeItems, setIncomeItems] = useState([]);
+  const [totalIncome, setTotalIncome] = useState(0);
+    {
+  function addIncome(income) {
+    setIncomeItems([...incomeItems, income]);
+    setTotalIncome(totalIncome + income.amount);
+  }
 
-      description="Discover how Shopify can power up your entrepreneurial journey."
-      popoverActions={[{content: 'Dismiss', onAction: () => {}}]}
-    >
-      <img
-        alt=""
-        width="100%"
-        height="100%"
-        style={{
-          objectFit: 'cover',
-          objectPosition: 'center',
-        }}
-        src="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"
-      />
-    </MediaCard>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Income</h2>
+      <ul>
+        {incomeItems.map((income, index) => (
+          <li key={index}>
+            {income.name}: {income.amount}
+          </li>
+        ))}
+      </ul>
+      <h3>Total Income: {totalIncome}</h3>
+      <IncomeForm addIncome={addIncome} />
+    </div>
+  );
+}
+}
+function IncomeForm({ addIncome }) {
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState(0);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    addIncome({ name, amount });
+    setName('');
+    setAmount(0);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={name} onChange={event => setName(event.target.value)} />
+      </label>
+      <br />
+      <label>
+        Amount:
+        <input type="number" value={amount} onChange={event => setAmount(event.target.value)} />
+      </label>
+      <br />
+      <button type="submit">Add Income</button>
+    </form>
+  );
 }
 
-export default Income;
+

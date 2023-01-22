@@ -11,7 +11,7 @@ function App() {
       <Topbar />
       <Expense />
       <Transactions />
-      {/* <Income /> */}
+      <Income />
       {/* <Navbar />  */}
     </div>
   );
