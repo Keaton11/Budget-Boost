@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 
-
-
-function Expense() {
-    const [earnings, setEarnings] = useState(0);
+export default function Expense() {
+    const [income, setIncome] = useState(0);
     const [spending, setSpending] = useState(0);
     const [categories, setCategories] = useState({});
 
-    const handleEarningsChange = (e) => {
-        setEarnings(e.target.value);
+    const handleChange = (e) => {
+        setIncome(e.target.value);
     }
-
+ 
     const handleSpendingChange = (e) => {
         setSpending(e.target.value);
     }
-
+ 
     const handleCategoryChange = (e) => {
         const newCategories = { ...categories };
         newCategories[e.target.name] = e.target.value;
         setCategories(newCategories);
     }
-
+ 
     const data = {
         labels: Object.keys(categories),
         datasets: [{
@@ -35,10 +33,10 @@ function Expense() {
     return (
         <div>
             <h1>Expenses: </h1>
-            <label>Earnings:</label>
-            <input type="number" value={earnings} onChange={handleEarningsChange} />
+            <label>Total Income:</label>
+            <input type="number" value={earnings} onChange={handleChange} />
             <br />
-            <label>Spending:</label>
+            <label>Amount Spent:</label>
             <input type="number" value={spending} onChange={handleSpendingChange} />
             <br />
             <label>Category:</label>
@@ -46,10 +44,9 @@ function Expense() {
             <label>Amount:</label>
             <input type="number" name="categoryAmount" onChange={handleCategoryChange} />
             <br />
-            <p>Amount Earned: {earnings}</p>
+            <p>Amount Earned: {income}</p>
             <p>Amount Spent: {spending}</p>
         </div>
-    );
-}
+    ); 
 
-export default Expense;
+}
