@@ -1,4 +1,4 @@
-import budgetBoostLogo from './logo.jpg';
+import budgetBoosterLogo from '../images/full-logo.jpg';
 
 import {
     ActionList,
@@ -21,6 +21,7 @@ import {
     TopBar,
   } from '@shopify/polaris';
   import {
+    HomeMajor,
     CashDollarMajor,
     CreditCardMajor,
     BankMajor,
@@ -121,7 +122,7 @@ function Menu() {
   
     const userMenuActions = [
       {
-        items: [{content: 'Community forums'}],
+        items: [{content: 'Profile Settings'}],
       },
     ];
   
@@ -175,9 +176,14 @@ function Menu() {
     );
   
     const navigationMarkup = (
-      <Navigation location="/">
+      <Navigation location="./">
         <Navigation.Section
           items={[
+            {
+              url: '/',
+              label: 'Home',
+              icon: HomeMajor,
+            },
             {
               url: '/income',
               label: 'Income',
@@ -210,7 +216,7 @@ function Menu() {
           {skipToContentTarget}
           <Layout.AnnotatedSection
             title="Account details"
-            description="Sign in to you BudgetBoost account!"
+            description="Sign in to you BudgetBooster account!"
           >
             <Card sectioned>
               <FormLayout>
@@ -284,9 +290,9 @@ function Menu() {
     const logo = {
       width: 175,
       topBarSource:
-        budgetBoostLogo,
+        budgetBoosterLogo,
       // contextualSaveBarSource:
-      // budgetBoostLogo
+      // budgetBoosterLogo
       //   'https://cdn.shopify.com/s/files/1/0446/6937/files/jaded-pixel-logo-gray.svg?6215648040070010999',
       // url: 'http://jadedpixel.com',
       // accessibilityLabel: 'Jaded Pixel',

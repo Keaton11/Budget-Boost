@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 function Expense() {
     const [earnings, setEarnings] = useState(0);
     const [spending, setSpending] = useState(0);
@@ -29,7 +31,6 @@ function Expense() {
             borderWidth: 1
         }]
     };
-
 
     return (
         <div>

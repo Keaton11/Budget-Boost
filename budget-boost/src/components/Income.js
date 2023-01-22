@@ -1,11 +1,4 @@
 import React, { useState } from 'react';
-import {Navigation, Frame} from '@shopify/polaris';
-import {
-  CashDollarMajor,
-  CreditCardMajor,
-  BankMajor,
-  HomeMajor,
-} from '@shopify/polaris-icons';
 
 export default function Income() {
   const [incomeItems, setIncomeItems] = useState([]);
@@ -43,39 +36,7 @@ function IncomeForm({ addIncome }) {
     setAmount(0);
   }
 
-  const navigationMarkup = (
-    <Navigation location="./">
-      <Navigation.Section
-        items={[
-          {
-            url: '/',
-            label: 'Home',
-            icon: HomeMajor,
-          },
-          {
-            url: '/income',
-            label: 'Income',
-            icon: CashDollarMajor,
-          },
-          {
-            url: '/expenses',
-            label: 'Expenses',
-            icon: BankMajor,
-          },
-          {
-            url: '/transactions',
-            label: 'Transactions',
-            icon: CreditCardMajor,
-          },
-        ]}
-      />
-    </Navigation>
-  );
-
   return (
-    <Frame
-            navigation={navigationMarkup}
-          >
     <form onSubmit={handleSubmit}>
       <label>
         Name:
@@ -89,6 +50,5 @@ function IncomeForm({ addIncome }) {
       <br />
       <button type="submit">Add Income</button>
     </form>
-    </Frame>
   );
 }
