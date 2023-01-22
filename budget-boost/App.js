@@ -1,5 +1,7 @@
 import React, {Component, useState} from 'react';
 import Income from './src/components/Income';
+import Transaction from './src/components/Transaction';
+
 // const [income, setIncome] = useState();
 // const [expenses, setExpenses] = useState();
 // const [transactions, setTransactions] = useState([]);
@@ -7,7 +9,7 @@ import Income from './src/components/Income';
 
 function App() {
   return (
-    <Income />
+    <Transaction />
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
